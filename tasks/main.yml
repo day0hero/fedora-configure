@@ -9,6 +9,7 @@
   ansible.builtin.lineinfile:
     path: "{{ lookup('ansible.builtin.env', 'HOME')}}/.vimrc"
     line: autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    create: yes
 
 - name: configure | install oh-my-zsh
   ansible.builtin.include_tasks:
