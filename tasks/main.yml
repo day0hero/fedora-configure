@@ -1,0 +1,12 @@
+# Task file for fedora-configure
+- name: configure | start the sshd service
+  ansible.builtin.service:
+    name: sshd
+    state: started
+    enabled: true
+
+- name: configure | update vimrc
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('ansible.builtin.env', 'HOME')}/.vimrc"
+    line: autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
