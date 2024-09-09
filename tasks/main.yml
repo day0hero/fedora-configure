@@ -1,5 +1,6 @@
 # Task file for fedora-configure
 - name: configure | start the sshd service
+  become: true
   ansible.builtin.service:
     name: sshd
     state: started
